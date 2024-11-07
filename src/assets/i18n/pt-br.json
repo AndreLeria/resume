@@ -5,7 +5,6 @@
     "nav": {
         "about": "Sobre",
         "experience": "Experiência profissional",
-        "skills": "Habilidades",
         "languages": "Idiomas"
     },
     "pages": {
@@ -23,11 +22,6 @@
             "skillSet": "Habilidades",
             "timespan": "De {{since}} até {{until}}",
             "untilNow": "atualmente"
-        },
-        "skills": {
-            "skill": "Habilidade",
-            "time": "Tempo de experiência",
-            "study": "Apenas estudos"
         },
         "languages": {
             "header": {
