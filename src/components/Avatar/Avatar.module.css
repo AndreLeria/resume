@@ -1,0 +1,11 @@
+.avatarContainer {
+    border-radius: 100%;
+
+    --size: 4rem;
+    width: var(--size);
+    height: var(--size);
+
+    @media (min-width: 768px) {
+        --size: 6rem;
+    }
+}

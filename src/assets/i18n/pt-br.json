@@ -1,0 +1,11 @@
+{
+    "header": {
+        "profession": "Desenvolvedor full-stack especialista em front-end"
+    },
+    "nav": {
+        "about": "Sobre",
+        "experience": "Experiência profissional",
+        "skills": "Habilidades",
+        "languages": "Idiomas"
+    }
+}
