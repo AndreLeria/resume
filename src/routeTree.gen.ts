@@ -14,13 +14,13 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as LayoutImport } from './routes/_layout'
+import { Route as LayoutSkillsImport } from './routes/_layout/skills'
 import { Route as LayoutLanguagesImport } from './routes/_layout/languages'
+import { Route as LayoutExperienceImport } from './routes/_layout/experience'
 
 // Create Virtual Routes
 
 const LayoutIndexLazyImport = createFileRoute('/_layout/')()
-const LayoutSkillsLazyImport = createFileRoute('/_layout/skills')()
-const LayoutExperienceLazyImport = createFileRoute('/_layout/experience')()
 
 // Create/Update Routes
 
@@ -35,25 +35,21 @@ const LayoutIndexLazyRoute = LayoutIndexLazyImport.update({
   getParentRoute: () => LayoutRoute,
 } as any).lazy(() => import('./routes/_layout/index.lazy').then((d) => d.Route))
 
-const LayoutSkillsLazyRoute = LayoutSkillsLazyImport.update({
+const LayoutSkillsRoute = LayoutSkillsImport.update({
   id: '/skills',
   path: '/skills',
   getParentRoute: () => LayoutRoute,
-} as any).lazy(() =>
-  import('./routes/_layout/skills.lazy').then((d) => d.Route),
-)
-
-const LayoutExperienceLazyRoute = LayoutExperienceLazyImport.update({
-  id: '/experience',
-  path: '/experience',
-  getParentRoute: () => LayoutRoute,
-} as any).lazy(() =>
-  import('./routes/_layout/experience.lazy').then((d) => d.Route),
-)
+} as any)
 
 const LayoutLanguagesRoute = LayoutLanguagesImport.update({
   id: '/languages',
   path: '/languages',
+  getParentRoute: () => LayoutRoute,
+} as any)
+
+const LayoutExperienceRoute = LayoutExperienceImport.update({
+  id: '/experience',
+  path: '/experience',
   getParentRoute: () => LayoutRoute,
 } as any)
 
@@ -68,6 +64,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
+    '/_layout/experience': {
+      id: '/_layout/experience'
+      path: '/experience'
+      fullPath: '/experience'
+      preLoaderRoute: typeof LayoutExperienceImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/languages': {
       id: '/_layout/languages'
       path: '/languages'
@@ -75,18 +78,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutLanguagesImport
       parentRoute: typeof LayoutImport
     }
-    '/_layout/experience': {
-      id: '/_layout/experience'
-      path: '/experience'
-      fullPath: '/experience'
-      preLoaderRoute: typeof LayoutExperienceLazyImport
-      parentRoute: typeof LayoutImport
-    }
     '/_layout/skills': {
       id: '/_layout/skills'
       path: '/skills'
       fullPath: '/skills'
-      preLoaderRoute: typeof LayoutSkillsLazyImport
+      preLoaderRoute: typeof LayoutSkillsImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/': {
@@ -102,16 +98,16 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface LayoutRouteChildren {
+  LayoutExperienceRoute: typeof LayoutExperienceRoute
   LayoutLanguagesRoute: typeof LayoutLanguagesRoute
-  LayoutExperienceLazyRoute: typeof LayoutExperienceLazyRoute
-  LayoutSkillsLazyRoute: typeof LayoutSkillsLazyRoute
+  LayoutSkillsRoute: typeof LayoutSkillsRoute
   LayoutIndexLazyRoute: typeof LayoutIndexLazyRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
+  LayoutExperienceRoute: LayoutExperienceRoute,
   LayoutLanguagesRoute: LayoutLanguagesRoute,
-  LayoutExperienceLazyRoute: LayoutExperienceLazyRoute,
-  LayoutSkillsLazyRoute: LayoutSkillsLazyRoute,
+  LayoutSkillsRoute: LayoutSkillsRoute,
   LayoutIndexLazyRoute: LayoutIndexLazyRoute,
 }
 
@@ -120,38 +116,38 @@ const LayoutRouteWithChildren =
 
 export interface FileRoutesByFullPath {
   '': typeof LayoutRouteWithChildren
+  '/experience': typeof LayoutExperienceRoute
   '/languages': typeof LayoutLanguagesRoute
-  '/experience': typeof LayoutExperienceLazyRoute
-  '/skills': typeof LayoutSkillsLazyRoute
+  '/skills': typeof LayoutSkillsRoute
   '/': typeof LayoutIndexLazyRoute
 }
 
 export interface FileRoutesByTo {
+  '/experience': typeof LayoutExperienceRoute
   '/languages': typeof LayoutLanguagesRoute
-  '/experience': typeof LayoutExperienceLazyRoute
-  '/skills': typeof LayoutSkillsLazyRoute
+  '/skills': typeof LayoutSkillsRoute
   '/': typeof LayoutIndexLazyRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/_layout': typeof LayoutRouteWithChildren
+  '/_layout/experience': typeof LayoutExperienceRoute
   '/_layout/languages': typeof LayoutLanguagesRoute
-  '/_layout/experience': typeof LayoutExperienceLazyRoute
-  '/_layout/skills': typeof LayoutSkillsLazyRoute
+  '/_layout/skills': typeof LayoutSkillsRoute
   '/_layout/': typeof LayoutIndexLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/languages' | '/experience' | '/skills' | '/'
+  fullPaths: '' | '/experience' | '/languages' | '/skills' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/languages' | '/experience' | '/skills' | '/'
+  to: '/experience' | '/languages' | '/skills' | '/'
   id:
     | '__root__'
     | '/_layout'
-    | '/_layout/languages'
     | '/_layout/experience'
+    | '/_layout/languages'
     | '/_layout/skills'
     | '/_layout/'
   fileRoutesById: FileRoutesById
@@ -181,22 +177,22 @@ export const routeTree = rootRoute
     "/_layout": {
       "filePath": "_layout.tsx",
       "children": [
-        "/_layout/languages",
         "/_layout/experience",
+        "/_layout/languages",
         "/_layout/skills",
         "/_layout/"
       ]
+    },
+    "/_layout/experience": {
+      "filePath": "_layout/experience.tsx",
+      "parent": "/_layout"
     },
     "/_layout/languages": {
       "filePath": "_layout/languages.tsx",
       "parent": "/_layout"
     },
-    "/_layout/experience": {
-      "filePath": "_layout/experience.lazy.tsx",
-      "parent": "/_layout"
-    },
     "/_layout/skills": {
-      "filePath": "_layout/skills.lazy.tsx",
+      "filePath": "_layout/skills.tsx",
       "parent": "/_layout"
     },
     "/_layout/": {

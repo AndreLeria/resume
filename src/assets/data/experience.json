@@ -5,17 +5,24 @@
         "since": "2023-03-01",
         "until": "2024-01-31",
         "skills": [
-            "csharp",
-            "aspnet",
-            "dotnet",
-            "nodejs",
-            "typescript",
-            "javascript",
-            "svelte",
-            "rabbitmq",
-            "salesforce",
-            "protheus",
-            "api"
+            "C#",
+            "ASP.NET",
+            ".NET",
+            "Blazor",
+            "xUnit",
+            "SQL",
+            "MS SQL Server",
+            "Node.JS",
+            "Nest.JS",
+            "TypeScript",
+            "JavaScript",
+            "Svelte",
+            "Cypress",
+            "RabbitMQ",
+            "CRM SalesForce",
+            "ERP Protheus",
+            "APIs",
+            "Git"
         ]
     },
     {
@@ -24,10 +31,150 @@
         "since": "2022-09-01",
         "until": "2023-04-30",
         "skills": [
-            "typescript",
-            "javascript",
-            "react",
-            "reactnative"
+            "TypeScript",
+            "JavaScript",
+            "React",
+            "React Native",
+            "Git"
+        ]
+    },
+    {
+        "title": "frontend",
+        "where": "Sciensa",
+        "since": "2022-05-01",
+        "until": "2022-09-01",
+        "skills": [
+            "TypeScript",
+            "JavaScript",
+            "React",
+            "Material UI",
+            "AWS",
+            "Jest",
+            "Git"
+        ]
+    },
+    {
+        "title": "frontend",
+        "where": "Metodologia Gustavo Borges",
+        "since": "2021-03-01",
+        "until": "2022-05-01",
+        "skills": [
+            "TypeScript",
+            "JavaScript",
+            "React",
+            "Relay",
+            "Bootstrap",
+            "TailwindCSS",
+            "Vue",
+            "Pinia",
+            "Cypress",
+            "PWA",
+            "Git"
+        ]
+    },
+    {
+        "title": "frontend",
+        "where": "NorteCred Formalizar",
+        "since": "2018-05-01",
+        "until": "2021-01-31",
+        "skills": [
+            "TypeScript",
+            "JavaScript",
+            "React",
+            "Redux",
+            "Redux Saga",
+            "Material UI",
+            "TailwindCSS",
+            "Vue",
+            "AngularJS",
+            "Angular",
+            "Node.JS",
+            "Express",
+            "Next.JS",
+            "MithrilJS",
+            "Cypress",
+            "C#",
+            "ASP.NET",
+            ".NET",
+            "xUnit",
+            "SQL",
+            "Git"
+        ]
+    },
+    {
+        "title": "fullstack",
+        "where": "HReinvent",
+        "since": "2017-08-01",
+        "until": "2018-04-30",
+        "skills": [
+            "JavaScript",
+            "C#",
+            "ASP.NET",
+            "SQL",
+            "MS SQL Server",
+            "jQuery",
+            "Bootstrap",
+            "TFS",
+            "Git"
+        ]
+    },
+    {
+        "title": "fullstack",
+        "where": "FlexVision",
+        "since": "2016-09-01",
+        "until": "2017-07-31",
+        "skills": [
+            "Java",
+            "Spring",
+            "PHP",
+            "JavaScript",
+            "Node.JS",
+            "Gulp",
+            "Webpack",
+            "AngularJS",
+            "jQuery",
+            "Bootstrap",
+            "Less",
+            "SQL",
+            "MySQL",
+            "SVN"
+        ]
+    },
+    {
+        "title": "fullstack",
+        "where": "MakeIT Informática",
+        "since": "2013-05-01",
+        "until": "2014-03-31",
+        "skills": [
+            "C#",
+            "ASP.NET",
+            ".NET",
+            "Web Forms",
+            "JavaScript",
+            "jQuery",
+            "Bootstrap",
+            "TFS"
+        ]
+    },
+    {
+        "title": "fullstack",
+        "where": "Inoudata",
+        "since": "2012-08-01",
+        "until": "2013-01-31",
+        "skills": [
+            "PHP",
+            "JavaScript",
+            "jQuery",
+            "Ruby"
+        ]
+    },
+    {
+        "title": "support",
+        "where": "Faculdade Eniac",
+        "since": "2011-04-01",
+        "until": "2011-12-31",
+        "skills": [
+            "support"
         ]
     }
 ]

@@ -12,7 +12,21 @@
         "about": {
             "bio": "Desenvolvedor full-stack desde 2012. Destes mais de 10 anos de experiência, 5 são como especialista front-end. Meu foco é em versatilidade para atender qualquer necessidade do mercado, por isso domino diversas linguagens para back-end, front-end, e alguns bancos."
         },
-        "experience": {},
+        "experience": {
+            "titles": {
+                "frontend": "Desenvolvedor Front-End",
+                "fullstack": "Desenvolvedor Full-Stack",
+                "backend": "Desenvolvedor Back-End",
+                "support": "Suporte TI"
+            },
+            "title": "{{title}} em {{where}}",
+            "skillSet": "Habilidades",
+            "timespan": "De {{since}} até {{until}}",
+            "untilNow": "atualmente",
+            "skills": {
+                "support": "Suporte TI"
+            }
+        },
         "skills": {},
         "languages": {
             "header": {
@@ -27,6 +41,13 @@
                 "mother": "Nativo",
                 "fluent": "Fluente"
             }
+        }
+    },
+    "common": {
+        "filter": {
+            "title": "Filtro",
+            "placeholder": "Digite aqui para filtrar...",
+            "help": "Separe palavras-chave por vírgula."
         }
     }
 }
