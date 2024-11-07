@@ -1,7 +1,6 @@
 import useDateFns from "@/hooks/useDateFns";
 import { ExperienceCardProps } from "./ExperienceCardProps";
 import { t } from "i18next";
-import i18n from "@/i18n";
 
 export default function ExperienceCard(props: ExperienceCardProps) {
     const { formatExperienceDate } = useDateFns();
@@ -20,9 +19,9 @@ export default function ExperienceCard(props: ExperienceCardProps) {
                 {t("pages.experience.skillSet")}:{" "}
                 {props.skills
                     .map((it) =>
-                        i18n.exists(`pages.experience.skills.${it}`)
-                            ? t(`pages.experience.skills.${it}`)
-                            : it,
+                        t(`common.skills.${it}`, {
+                            defaultValue: it,
+                        }),
                     )
                     .join(", ")}
             </p>

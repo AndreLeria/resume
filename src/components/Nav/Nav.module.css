@@ -1,8 +1,13 @@
 .navContainer {
     margin-bottom: 2rem;
+    text-transform: uppercase;
 
     & a {
         text-align: center;
+    }
+
+    & option {
+        text-transform: uppercase;
     }
 }
 

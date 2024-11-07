@@ -22,12 +22,13 @@
             "title": "{{title}} em {{where}}",
             "skillSet": "Habilidades",
             "timespan": "De {{since}} até {{until}}",
-            "untilNow": "atualmente",
-            "skills": {
-                "support": "Suporte TI"
-            }
+            "untilNow": "atualmente"
         },
-        "skills": {},
+        "skills": {
+            "skill": "Habilidade",
+            "time": "Tempo de experiência",
+            "study": "Apenas estudos"
+        },
         "languages": {
             "header": {
                 "language": "Idioma",
@@ -48,6 +49,9 @@
             "title": "Filtro",
             "placeholder": "Digite aqui para filtrar...",
             "help": "Separe palavras-chave por vírgula."
+        },
+        "skills": {
+            "support": "Suporte TI"
         }
     }
 }
