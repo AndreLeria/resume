@@ -7,5 +7,26 @@
         "experience": "Experiência profissional",
         "skills": "Habilidades",
         "languages": "Idiomas"
+    },
+    "pages": {
+        "about": {
+            "bio": "Desenvolvedor full-stack desde 2012. Destes mais de 10 anos de experiência, 5 são como especialista front-end. Meu foco é em versatilidade para atender qualquer necessidade do mercado, por isso domino diversas linguagens para back-end, front-end, e alguns bancos."
+        },
+        "experience": {},
+        "skills": {},
+        "languages": {
+            "header": {
+                "language": "Idioma",
+                "level": "Nível"
+            },
+            "languages": {
+                "ptBr": "Português brasileiro",
+                "en": "Inglês"
+            },
+            "levels": {
+                "mother": "Nativo",
+                "fluent": "Fluente"
+            }
+        }
     }
 }

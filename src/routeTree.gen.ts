@@ -14,12 +14,12 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as LayoutImport } from './routes/_layout'
+import { Route as LayoutLanguagesImport } from './routes/_layout/languages'
 
 // Create Virtual Routes
 
 const LayoutIndexLazyImport = createFileRoute('/_layout/')()
 const LayoutSkillsLazyImport = createFileRoute('/_layout/skills')()
-const LayoutLanguagesLazyImport = createFileRoute('/_layout/languages')()
 const LayoutExperienceLazyImport = createFileRoute('/_layout/experience')()
 
 // Create/Update Routes
@@ -43,14 +43,6 @@ const LayoutSkillsLazyRoute = LayoutSkillsLazyImport.update({
   import('./routes/_layout/skills.lazy').then((d) => d.Route),
 )
 
-const LayoutLanguagesLazyRoute = LayoutLanguagesLazyImport.update({
-  id: '/languages',
-  path: '/languages',
-  getParentRoute: () => LayoutRoute,
-} as any).lazy(() =>
-  import('./routes/_layout/languages.lazy').then((d) => d.Route),
-)
-
 const LayoutExperienceLazyRoute = LayoutExperienceLazyImport.update({
   id: '/experience',
   path: '/experience',
@@ -58,6 +50,12 @@ const LayoutExperienceLazyRoute = LayoutExperienceLazyImport.update({
 } as any).lazy(() =>
   import('./routes/_layout/experience.lazy').then((d) => d.Route),
 )
+
+const LayoutLanguagesRoute = LayoutLanguagesImport.update({
+  id: '/languages',
+  path: '/languages',
+  getParentRoute: () => LayoutRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -70,18 +68,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutImport
       parentRoute: typeof rootRoute
     }
+    '/_layout/languages': {
+      id: '/_layout/languages'
+      path: '/languages'
+      fullPath: '/languages'
+      preLoaderRoute: typeof LayoutLanguagesImport
+      parentRoute: typeof LayoutImport
+    }
     '/_layout/experience': {
       id: '/_layout/experience'
       path: '/experience'
       fullPath: '/experience'
       preLoaderRoute: typeof LayoutExperienceLazyImport
-      parentRoute: typeof LayoutImport
-    }
-    '/_layout/languages': {
-      id: '/_layout/languages'
-      path: '/languages'
-      fullPath: '/languages'
-      preLoaderRoute: typeof LayoutLanguagesLazyImport
       parentRoute: typeof LayoutImport
     }
     '/_layout/skills': {
@@ -104,15 +102,15 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface LayoutRouteChildren {
+  LayoutLanguagesRoute: typeof LayoutLanguagesRoute
   LayoutExperienceLazyRoute: typeof LayoutExperienceLazyRoute
-  LayoutLanguagesLazyRoute: typeof LayoutLanguagesLazyRoute
   LayoutSkillsLazyRoute: typeof LayoutSkillsLazyRoute
   LayoutIndexLazyRoute: typeof LayoutIndexLazyRoute
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
+  LayoutLanguagesRoute: LayoutLanguagesRoute,
   LayoutExperienceLazyRoute: LayoutExperienceLazyRoute,
-  LayoutLanguagesLazyRoute: LayoutLanguagesLazyRoute,
   LayoutSkillsLazyRoute: LayoutSkillsLazyRoute,
   LayoutIndexLazyRoute: LayoutIndexLazyRoute,
 }
@@ -122,15 +120,15 @@ const LayoutRouteWithChildren =
 
 export interface FileRoutesByFullPath {
   '': typeof LayoutRouteWithChildren
+  '/languages': typeof LayoutLanguagesRoute
   '/experience': typeof LayoutExperienceLazyRoute
-  '/languages': typeof LayoutLanguagesLazyRoute
   '/skills': typeof LayoutSkillsLazyRoute
   '/': typeof LayoutIndexLazyRoute
 }
 
 export interface FileRoutesByTo {
+  '/languages': typeof LayoutLanguagesRoute
   '/experience': typeof LayoutExperienceLazyRoute
-  '/languages': typeof LayoutLanguagesLazyRoute
   '/skills': typeof LayoutSkillsLazyRoute
   '/': typeof LayoutIndexLazyRoute
 }
@@ -138,22 +136,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/_layout': typeof LayoutRouteWithChildren
+  '/_layout/languages': typeof LayoutLanguagesRoute
   '/_layout/experience': typeof LayoutExperienceLazyRoute
-  '/_layout/languages': typeof LayoutLanguagesLazyRoute
   '/_layout/skills': typeof LayoutSkillsLazyRoute
   '/_layout/': typeof LayoutIndexLazyRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/experience' | '/languages' | '/skills' | '/'
+  fullPaths: '' | '/languages' | '/experience' | '/skills' | '/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/experience' | '/languages' | '/skills' | '/'
+  to: '/languages' | '/experience' | '/skills' | '/'
   id:
     | '__root__'
     | '/_layout'
-    | '/_layout/experience'
     | '/_layout/languages'
+    | '/_layout/experience'
     | '/_layout/skills'
     | '/_layout/'
   fileRoutesById: FileRoutesById
@@ -183,18 +181,18 @@ export const routeTree = rootRoute
     "/_layout": {
       "filePath": "_layout.tsx",
       "children": [
-        "/_layout/experience",
         "/_layout/languages",
+        "/_layout/experience",
         "/_layout/skills",
         "/_layout/"
       ]
     },
-    "/_layout/experience": {
-      "filePath": "_layout/experience.lazy.tsx",
+    "/_layout/languages": {
+      "filePath": "_layout/languages.tsx",
       "parent": "/_layout"
     },
-    "/_layout/languages": {
-      "filePath": "_layout/languages.lazy.tsx",
+    "/_layout/experience": {
+      "filePath": "_layout/experience.lazy.tsx",
       "parent": "/_layout"
     },
     "/_layout/skills": {

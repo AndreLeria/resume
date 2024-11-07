@@ -1,18 +1,18 @@
 import { Link } from "@tanstack/react-router";
-import { useTranslation } from "react-i18next";
 import classes from "./Nav.module.css";
+import useNav from "./useNav";
 
 export default function Nav() {
-    const { t } = useTranslation();
+    const { t, handleSelectNavigation, currentRoute } = useNav();
 
     return (
         <div className={classes.navContainer}>
             <nav className={`${classes.mobileNav}`}>
-                <select>
-                    <option>{t("nav.about")}</option>
-                    <option>{t("nav.experience")}</option>
-                    <option>{t("nav.skills")}</option>
-                    <option>{t("nav.languages")}</option>
+                <select value={currentRoute} onChange={handleSelectNavigation}>
+                    <option value="/">{t("nav.about")}</option>
+                    <option value="/experience">{t("nav.experience")}</option>
+                    <option value="/skills">{t("nav.skills")}</option>
+                    <option value="/languages">{t("nav.languages")}</option>
                 </select>
             </nav>
 

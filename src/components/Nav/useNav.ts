@@ -1,15 +1,24 @@
-import { useMatchRoute } from "@tanstack/react-router";
-import { Route as AboutRoute } from "@/routes/_layout/index.lazy";
-import { Route as ExperienceRoute } from "@/routes/_layout/experience.lazy";
-import { Route as SkillsRoute } from "@/routes/_layout/skills.lazy";
-import { Route as LanguagesRoute } from "@/routes/_layout/languages.lazy";
+import { useMatches, useNavigate } from "@tanstack/react-router";
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function useNav() {
-    const matchRoute = useMatchRoute();
-    const isAboutRoute = matchRoute(AboutRoute.options.id);
-    const isExperienceRoute = matchRoute(ExperienceRoute.options.id);
-    const isSkillsRoute = matchRoute(SkillsRoute.options.id);
-    const isLanguagesRoute = matchRoute(LanguagesRoute.options.id);
+    const { t } = useTranslation();
 
-    return { isAboutRoute, isExperienceRoute, isSkillsRoute, isLanguagesRoute };
+    const navigate = useNavigate();
+    const handleSelectNavigation = React.useCallback(
+        (e: React.ChangeEvent<HTMLSelectElement>) => {
+            navigate({ to: e.target.value });
+        },
+        [navigate],
+    );
+
+    const matches = useMatches();
+    const currentRoute = matches.at(-1)?.pathname;
+
+    return {
+        t,
+        handleSelectNavigation,
+        currentRoute,
+    };
 }

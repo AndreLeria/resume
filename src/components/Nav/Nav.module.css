@@ -1,4 +1,6 @@
 .navContainer {
+    margin-bottom: 2rem;
+
     & a {
         text-align: center;
     }

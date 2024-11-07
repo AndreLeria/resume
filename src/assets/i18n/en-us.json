@@ -7,5 +7,26 @@
         "experience": "Professional Experience",
         "skills": "Skills",
         "languages": "Languages"
+    },
+    "pages": {
+        "about": {
+            "bio": "Full-stack developer since 2012. In these over 10 years of professional experience, 5 of them are as a front-end specialist. I focus on staying versatile enough in my knowledges to be able to attend any demands from the current market, and for such I am proficient in using diverse programming languages for back-end programming, front-end programming, and some databases."
+        },
+        "experience": {},
+        "skills": {},
+        "languages": {
+            "header": {
+                "language": "Language",
+                "level": "Level"
+            },
+            "languages": {
+                "ptBr": "Brazilian portuguese",
+                "en": "English"
+            },
+            "levels": {
+                "mother": "Mother language",
+                "fluent": "Fluent"
+            }
+        }
     }
 }
